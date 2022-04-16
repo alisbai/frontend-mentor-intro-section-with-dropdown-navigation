@@ -1,3 +1,25 @@
-body {
-    background: blue;
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    /* colors */
+    --Almost-White: hsl(0, 0%, 98%);
+    --Medium-Gray: hsl(0, 0%, 41%);
+    --Almost-Black: hsl(0, 0%, 8%);
+}
+
+html {
+    font-size: 16px;
+    font-family: "Epilogue";
+}
+
+body {
+    min-height: 100vh;
+    font-size: 1.125rem;
+}
+
