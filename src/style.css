@@ -20,5 +20,65 @@ html {
 
 body {
     min-height: 100vh;
+    color: var(--Medium-Gray)
 }
 
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+button {
+    color: inherit;
+    background: transparent;
+    border: 1px solid black;
+}
+
+.navbar-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 6rem;
+    padding: 0.4rem 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-item * {
+    pointer-events: none;
+}
+.navbar-item span {
+    font-size: 0.75rem;
+    /* margin-right: 0.5rem; */
+}
+
+.navbar-item:hover {
+    font-weight: 800;
+}
+
+.arrows-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: .2rem;
+}
+
+.arrow-up {
+    display: none
+}
+
+.register-button {
+    border: 1px solid var(--Medium-Gray) !important;
+    border-radius: 10px !important;
+}
+
+.hide {
+    display: none;
+}
