@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./style.css"
+import App from "./App"
 
-ReactDOM.render(<h1>Hello World</h1>, document.querySelector("body"))
+ReactDOM.render(<App />, document.querySelector("body"))
