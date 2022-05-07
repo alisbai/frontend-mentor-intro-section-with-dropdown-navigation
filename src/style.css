@@ -20,7 +20,25 @@ html {
 
 body {
     min-height: 100vh;
-    color: var(--Medium-Gray)
+    color: var(--Medium-Gray);
+    z-index: 0;
+}
+
+.overlay {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: 0.5s opacity;
+}
+
+.overlay-visible {
+    opacity: 0.5;
 }
 
 li {
@@ -36,6 +54,7 @@ button {
     color: inherit;
     background: transparent;
     border: 1px solid black;
+    cursor: pointer;
 }
 
 .navbar-item {
@@ -70,8 +89,18 @@ button {
     right: .2rem;
 }
 
+/* I'm not actually using the arrow-up html image */
+
 .arrow-up {
     display: none
+}
+/* I'm just adding a flip-arrow class which rotate the arrow-down html image */
+
+.arrow-down {
+    transition: 0.2s transform;
+}
+.flip-arrow {
+    transform: rotate(180deg);
 }
 
 .register-button {
@@ -80,5 +109,223 @@ button {
 }
 
 .hide {
+    display: none !important;
+}
+
+
+.item-card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    font-weight: 400;
+    top: 1.5rem;
+    width: max-content;
+    box-shadow: 0 0 0.3rem 0.2rem rgba(51, 51, 51, 0.267);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+}
+
+.features-item-card {
+    right: 0.25rem;
+}
+
+.features-item-card > li {
+    display: flex;
+    align-items: center;
+
+}
+
+.features-item-card > li > img {
+    margin-right: auto;
+}
+
+.company-item-card {
+    left: .5rem;
+}
+
+.item-card  li {
+    padding: 0.25rem;
+}
+
+.item-card li:hover {
+    background-color:hsl(0, 0%, 41%);
+}
+
+.burger-menu-icon {
     display: none;
+    cursor: pointer;
+}
+
+.x-sign-icon {
+    display: none;
+}
+
+/* collapse-sidebar and open-sidebar are two dynamic class that get added through an event handler */
+
+.collapse-sidebar {
+    width: 0;
+}
+
+.open-sidebar {
+    width: 80%;
+    max-width: 25rem;
+}
+
+/* Main section styling */
+
+.main {
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.description-section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.8rem;
+    max-width: 28rem;
+}
+
+.hero-section {
+    max-width: 23rem;
+    margin-left: 5%;
+}
+
+.hero-section img {
+    width: 100%;
+}
+
+.main-heading {
+    margin-bottom: 2.5rem;
+    color: black;
+    font-size: 3.8rem;
+    z-index: 0;
+}
+.main-para {
+    margin-bottom: 2.5rem;
+}
+
+.main-para {
+    line-height: 1.5;
+}
+.call-to-action {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    color: var(--Almost-White);
+    background-color: black;
+    max-width: 10rem;
+    margin-bottom: auto;
+}
+.client-logos-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.client-logo {
+    max-width: 25%;
+    padding: 0.2rem;
+}
+
+
+/* Mobile design */
+
+
+@media (max-width: 43rem) {
+    
+
+    .burger-menu-icon {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .header--login-register-wrapper {
+        display: none !important;
+    }
+
+    .navbar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: white;
+        z-index: 2;
+        overflow: hidden;
+        align-items: flex-start !important;
+        transition: 0.5s width;
+
+    }
+    .navbar--navbar-items {
+        grid-template-columns: 1fr !important;
+        margin-top: 4rem;
+    }
+
+    .navbar-item {
+        align-items: flex-start;
+        display: block;
+    }
+    
+    .item-card {
+        top: 0;
+        margin-top: 0.4rem;
+        margin-left: 0.7rem;
+        box-shadow: none;
+    }
+
+    .arrows-wrapper {
+        display: block;
+        height: fit-content;
+    }
+
+    .arrows-wrapper img {
+        margin-top: 0.62rem;
+    }
+    .x-sign-icon {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+    }
+    .item-card {
+        position: relative;
+    }
+
+    .arrow-wrapper {
+        align-items: flex-start;
+    }
+
+    .main {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .hero-section {
+        margin-left: 0;
+    }
+
+    .description-section {
+        text-align: center;
+        padding: 2rem 2rem 0 2rem;
+        align-items: center;
+    }
+
+    .main-heading {
+        font-size: 2.6rem;
+    }
+    .call-to-action {
+        margin-bottom: 0;
+    }
+
+    .main-para {
+        margin-bottom: 1rem;
+    }
 }

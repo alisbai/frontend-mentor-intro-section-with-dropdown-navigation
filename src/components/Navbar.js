@@ -1,8 +1,7 @@
 import React from "react"
-import arrowUp from "../images/icon-arrow-up.svg"
-import arrowDown from "../images/icon-arrow-down.svg"
-import xSighn from "../images/icon-close-menu.svg"
-export default function Navbar() {
+import xSign from "../images/icon-close-menu.svg"
+import NavbarItem from "./NavbarItem.js"
+export default function Navbar(props) {
 
     const styles = {
         marginRight: "auto",
@@ -16,39 +15,24 @@ export default function Navbar() {
     }
 
 
-    // the styles for each navbar-item will be in the styl.css, since I can use the the ".navbar-item" selecor there.
+
+    // the styles for each navbar-item will be in the style.css, since I can use the the ".navbar-item" selector  to select multiple navbar items at once there.
     // This will save me from repeating code
+
+    
     
     return (
-        <nav className="navbar" style={styles}>
-            <img className="x-sign-icon hide" src={xSighn} />
+        <nav className={`navbar ${props.widthClass}`} style={styles}>
+            <img className="x-sign-icon" src={xSign} onClick={(e) => props.onClick(e)}/>
             {/* first item */}
             <ul className="navbar--navbar-items" style={navbarItemsStyles}>
-                <li className="navbar-item features">
-                    <span className="navbar-item-name">Features</span>
-                    <div className="arrows-wrapper">
-                        <img className="arrow-up" src={arrowUp}/>
-                        <img className="arrow-down" src={arrowDown}/>
-                    </div>
-                    <div className="navbar-item-card"></div>
-                </li>
+                <NavbarItem name= "Features" withDropdown = {true} />
             {/* second item */}
-                <li className="navbar-item company">
-                    <span className="navbar-item-name">Company</span>
-                    <div className="arrows-wrapper">
-                        <img className="arrow-up" src={arrowUp}/>
-                        <img className="arrow-down" src={arrowDown}/>
-                    </div>
-                    <div className="navbar-item-card"></div>
-                </li>
+                <NavbarItem name="Company" withDropdown = {true} />
             {/* third item */}
-                <li className="navbar-item careers">
-                    <span className="navbar-item-name">Careers</span>
-                </li>
+                <NavbarItem name="Careers" withDropdown = {false} />
             {/* forth item */}
-                <li className="navbar-item about">
-                    <span className="navbar-item-name">About</span>
-                </li>
+                <NavbarItem name="About" withDropdown = {false} />
 
             </ul>
         </nav>
